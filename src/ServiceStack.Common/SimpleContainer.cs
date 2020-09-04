@@ -35,7 +35,7 @@ namespace ServiceStack
 
         public IContainer AddSingleton(Type type, Func<object> factory)
         {
-            Factory[type] = () => InstanceCache.GetOrAdd(type, factory());
+            Factory[type] = () => InstanceCache.GetOrAdd(type, t => factory());
             return this;
         }
 
